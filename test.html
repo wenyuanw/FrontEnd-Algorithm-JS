@@ -1,0 +1,31 @@
+<!--
+ * @Author: Ran
+ * @Date: 2021-01-16 11:01:17
+ * @LastEditors: Ran
+ * @LastEditTime: 2021-01-16 11:08:38
+ * @FilePath: \Nodef:\FrontEndLearning\FE_Learning\JZoffer\test.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function minNumberInRotateArray(rotateArray) {
+            // write code here
+            if (rotateArray.length == 0) {
+                return 0;
+            }
+            return Math.min(...rotateArray);
+        }
+        console.log(minNumberInRotateArray([3, 4, 5, 2, 2]));
+    </script>
+</body>
+
+</html>
