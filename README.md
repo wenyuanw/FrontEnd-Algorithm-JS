@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-01-14 11:17:50
  * @LastEditors: Ran
- * @LastEditTime: 2021-01-15 10:31:20
+ * @LastEditTime: 2021-01-18 10:44:57
  * @FilePath: \Nodef:\FrontEndLearning\FE_Learning\JZoffer\README.md
  * @Description: 
 -->
@@ -14,13 +14,21 @@
 
 ------
 
-先刷剑指offer：
+**先刷剑指offer：**
 
 [牛客网](https://www.nowcoder.com/ta/coding-interviews)
 
 1. [JZ2-替换空格-解题代码](./JZ2-替换空格.js)
 2. [JZ27-斐波那契数列-解题代码](./JZ27-斐波那契数列.js)
 3. [JZ27-二维数组中的查找-解题代码20210114](./JZ1-二维数组中的查找.js)
-3. [JZ18-二叉树的镜像（LeetCode翻转二叉树）-解题代码20210114](./JZ18-二叉树的镜像.js)
-5. [JZ6-旋转数组的最小数字-解题代码20210114](./JZ6-旋转数组的最小数字.js)
+3. [JZ18-二叉树的镜像（LeetCode翻转二叉树）-解题代码20210115](./JZ18-二叉树的镜像.js)
+5. [JZ6-旋转数组的最小数字-解题代码20210116](./JZ6-旋转数组的最小数字.js)
+6. [JZ6-二叉树的深度-解题代码20210118](./JZ38-二叉树的深度.js)
 
+
+
+------
+
+**LeetCode：**
+
+1. [01-两数之和-解题代码](./01-twoSum.js)
