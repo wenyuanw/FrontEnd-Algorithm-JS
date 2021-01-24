@@ -1,9 +1,9 @@
 <!--
  * @Author: Ran
- * @Date: 2021-01-14 11:17:50
+ * @Date: 2021-01-24 20:19:58
  * @LastEditors: Ran
- * @LastEditTime: 2021-01-18 10:44:57
- * @FilePath: \Nodef:\FrontEndLearning\FE_Learning\JZoffer\README.md
+ * @LastEditTime: 2021-01-24 22:46:06
+ * @FilePath: \Noded:\FE_Learning\JZoffer\README.md
  * @Description: 
 -->
 # 备战前端——刷题（20210112）
@@ -23,7 +23,8 @@
 3. [JZ27-二维数组中的查找-解题代码20210114](./JZ1-二维数组中的查找.js)
 3. [JZ18-二叉树的镜像（LeetCode翻转二叉树）-解题代码20210115](./JZ18-二叉树的镜像.js)
 5. [JZ6-旋转数组的最小数字-解题代码20210116](./JZ6-旋转数组的最小数字.js)
-6. [JZ6-二叉树的深度-解题代码20210118](./JZ38-二叉树的深度.js)
+6. [JZ38-二叉树的深度-解题代码20210118](./JZ38-二叉树的深度.js)
+7. [JZ3-从尾到头打印链表-解题代码20210118](./JZ3-从尾到头打印链表.js)
 
 
 
