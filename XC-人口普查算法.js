@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-03-04 20:06:52
  * @LastEditors: Ran
- * @LastEditTime: 2021-03-05 10:42:22
+ * @LastEditTime: 2021-03-05 10:58:47
  * @FilePath: \JZoffer\XC-人口普查算法.js
  * @Description: 
  * 携程笔试题：
@@ -48,7 +48,7 @@ for (let i = 0; i < n; i++) {
     }
 }
 // 对数组去重
-noRepeatYearArr = Array.from(set(yearArr));
+noRepeatYearArr = Array.from(new Set(yearArr));
 // 遍历noRepeatYearArr中的数，与yearArr中每一个进行比较，判断出现次数即可
 // noRepeatYearArr和yearArr都进行sort()之后再进行比较，从最大的开始判断出现次数，双指针进行类似-->出队操作
 // 计数器以及num的值都随时更新
