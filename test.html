@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-01-16 11:01:17
  * @LastEditors: Ran
- * @LastEditTime: 2021-03-06 20:37:38
+ * @LastEditTime: 2021-03-09 13:46:06
  * @FilePath: \JZoffer\test.html
  * @Description: 
 -->
@@ -17,97 +17,20 @@
 
 <body>
     <script>
-        const INF = Number.MAX_SAFE_INTEGER;
-        // 查找最近的点
-        const minDistance = (dist, visited) => {
-            let min = INF;
-            let minIndex = -1;
-            for (let v = 0; v < dist.length; v++) {
-                if (visited[v] === false && dist[v] <= min) {
-                    min = dist[v];
-                    minIndex = v;
+        var firstUniqChar = function(s) {
+            let strArr = s.split('');
+            for (let i = 0; i < strArr.length; i++) {
+                let uniqChar = strArr[0];
+                strArr.shift();
+                if (strArr.indexOf(uniqChar) === -1) {
+                    return i;
                 }
+                strArr.push(uniqChar);
             }
-            return minIndex;
+            return -1;
         };
-        /** 
-         * @param {图：邻接矩阵} graph 
-         * @param {顶点索引} src 
-         */
-        const dijkstra = (graph, src) => {
-            const dist = [];
-            // 用于标识顶点 src 至其他顶点的距离是否确定
-            const visited = [];
-            const {
-                length
-            } = graph;
-            for (let i = 0; i < length; i++) {
-                dist[i] = INF;
-                visited[i] = false;
-            }
-            dist[src] = 0;
-            for (let i = 0; i < length - 1; i++) {
-                const u = minDistance(dist, visited);
-                // 标识顶点 src 到此顶点的距离已经确认
-                visited[u] = true;
-                for (let v = 0; v < length; v++) {
-                    if (!visited[v] && graph[u][v] !== 0 && dist[u] !== INF && dist[u] + graph[u][v] < dist[v]) {
-                        // 更新 dist
-                        dist[v] = dist[u] + graph[u][v];
-                    }
-                }
-            }
-            return dist;
-        };
-
-        // test 
-        const graph = [
-            [0, 2, 3, 0, 5, 0],
-            [2, 0, 0, 0, 1, 4],
-            [3, 0, 0, 6, 0, 0],
-            [0, 6, 0, 0, 3, 4],
-            [5, 1, 0, 3, 0, 5],
-            [0, 4, 0, 4, 5, 0]
-        ];
-
-        // const dist = dijkstra(graph, 0);
-        // console.log(dist[dist.length - 1]);
-        const dist = dijkstra(graph, 0);
-        for (i = 0; i < dist.length; i++) {
-            console.log(i + '\t\t' + dist[i]);
-        }
-        // result
-        // 0 0
-        // 1 2
-        // 2 4
-        // 3 6
-        // 4 4
-        // 5 6
+        console.log(firstUniqChar('leetcode'));
     </script>
-    <!-- <script>
-        let grase = [2, 3, 4, 5, 6];
-        let milk = [2, 4, 7, 9, 12];
-        let milk_sum = 0;
-
-        function MaxMilk(grase, milk) {
-            for (let i = 0; i < grase.length; i++) {
-                let temp = 0;
-                for (let j = 0; j < grase.length; j++) {
-                    if (i != j && grase[i] > grase[j] && milk[i] < milk[j]) {
-
-                    } else if (i != j && grase[i] < grase[j] && milk[i] > milk[j]) {
-
-                    } else {
-                        temp += milk[j];
-                    }
-                }
-                if (temp > milk_sum)
-                    milk_sum = temp;
-            }
-            return milk_sum;
-        }
-        console.log(MaxMilk(grase, milk));
-    </script> -->
 
 </body>
 
