@@ -17,19 +17,24 @@
 
 <body>
     <script>
-        var firstUniqChar = function(s) {
-            let strArr = s.split('');
-            for (let i = 0; i < strArr.length; i++) {
-                let uniqChar = strArr[0];
-                strArr.shift();
-                if (strArr.indexOf(uniqChar) === -1) {
-                    return i;
-                }
-                strArr.push(uniqChar);
-            }
-            return -1;
-        };
-        console.log(firstUniqChar('leetcode'));
+function test(person) {
+    person.age = 26
+    person = {
+        name: 'yyy',
+        age: 30
+    }
+
+    return person
+}
+
+const p1 = {
+    name: 'yck',
+    age: 25
+}
+const p2 = test(p1)
+
+console.log(p1);
+console.log(p2);
     </script>
 
 </body>
