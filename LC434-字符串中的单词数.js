@@ -41,7 +41,7 @@
 var countSegments = function(s) {
     let count = 0;
     s += ' ';
-    for (let p = 1; p < s.length; p++){
+    for (let  ; p < s.length; p++){
         if (s[p - 1] !== s[p] && s[p] === ' ') count++;
     }
     return count;
