@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-01-16 11:01:17
  * @LastEditors: Ran
- * @LastEditTime: 2021-03-09 13:46:06
+ * @LastEditTime: 2021-03-13 00:42:40
  * @FilePath: \JZoffer\test.html
  * @Description: 
 -->
@@ -17,24 +17,66 @@
 
 <body>
     <script>
-function test(person) {
-    person.age = 26
-    person = {
-        name: 'yyy',
-        age: 30
-    }
+        // let s = "3[a]2[bc]";
+        let s = "10[a]2[bc]";
+        var decodeString = function(s) {
+            let left = 0; // 统计左括号数量
+            let right = 0; // 统计右括号数量
+            let k = 0; // 重复次数
+            let start = 0; // [ 的位置
+            let end = 0; // ] 的位置
+            let count_k = 0; // 数字 k 的位数
+            if (!s) return null;
+            // 可以考虑用递归
+            if (s.indexOf('[') === -1) return s;
+            // 从最外层的[ ]开始处理
+            // 统计 '[' ']' 的出现次数分别为 i j,当 i === j的时候停止循环
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] === '[') {
+                    left++;
+                    if (left === 1) {
+                        // 数组存重复次数 k 值，还要注意 k 可能是大于等于 10 的数 ，不一定是只有 1 位！
+                        // 直接parseInt可以取出整数？
+                        // k = parseInt(s[i - 1]);
+                        // 记录开始 [ 的位置
+                        start = i;
+                    }
+                }
+                if (s[i] === ']') {
+                    right++;
+                }
+                if (left !== 0 && left === right) {
+                    // 记录结束 ] 的位置
+                    end = i;
+                    break;
+                }
+            }
+            // 当 k 位于第一位，且只有一位数的时候，eg: 3[ab]
+            if(start === 1) {
+                k = parseInt(s[0]);
+            } else {
+                let str_K = s.slice(0, start);
+                // 计算 k 的位数，从后往前判断是否是数字
+                for (let i = start - 1; i >= 0; i-- ) {
+                    if(0 <= str_K[i] && str_K[i] <= 9){
+                        count_k++;
+                    }else {
+                        i = -1; // 终止循环
+                    }
+                }
+                str_K = str_K.slice(start - count_k);
+                // parseInt 无法返回字符串中间的数字，如 parseInt('ab123ab') 返回的是NaN
+                k = parseInt(str_K);
+            }
 
-    return person
-}
-
-const p1 = {
-    name: 'yck',
-    age: 25
-}
-const p2 = test(p1)
-
-console.log(p1);
-console.log(p2);
+            // 取出 [ ] 中的字符串，重复 k 次
+            let encoded_string = s.slice(start + 1, end);
+            let decodeed_string = encoded_string.repeat(k); // 重复 k 次之后的结果
+            // 只需要将解码后的 decodeed_stringc 替换原来未解码的即可
+            decodeed_string = s.replace(k + '[' + encoded_string + ']', decodeed_string)
+            return decodeString(decodeed_string);
+        }
+        console.log(decodeString(s));
     </script>
 
 </body>
