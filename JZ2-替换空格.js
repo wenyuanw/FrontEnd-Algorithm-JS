@@ -14,3 +14,43 @@ function replaceSpace(str) {
     return str.replace(/ /g, '%20');
 }
 console.log(replaceSpace('We Are Happy.'));
+
+
+var replaceSpace = function(s) {
+    s = s.split('');
+   for(let i=0;i<s.length;i++){
+       if(s[i] == ' '){
+           s[i] ='%20'
+       }
+   }
+   return s.join('')
+};
+
+// 补充第二种方法 可以不要数组 谢谢@想见青山
+var replaceSpace = function(s) {
+  return  s.split(' ').join("%20");
+};
+
+// 作者：fannie-5
+// 链接：https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/solution/javascriptliang-chong-jie-ti-fang-shi-by-ttkp/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+// 若不考察算法思维，我们其实可以使用如下解法快速完成：
+// replace 或 replaceAll
+s = s.replace(/ /g, '%20')
+s = s.replaceAll(' ', '%20')
+
+// split + join
+s = s.split(' ').join('%20');
+
+// encodeURIComponent
+encodeURIComponent(s)
+
+// 暴破 ...等等
+
+// 作者：demigodliu
+// 链接：https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/solution/tu-jie-guan-fang-tui-jian-ti-jie-ti-huan-3l74/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

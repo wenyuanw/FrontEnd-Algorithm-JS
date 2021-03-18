@@ -13,7 +13,10 @@
  */
 // 1.暴力解法
 function Find(target, array) {
-    // write code here
+    // 注意边界条件:
+    // 没有的话输入 0 [] 的时候会出错
+    if(!array.length) return false;
+
     let row = array.length;
     let col = array[0].length;
     let flag = false;
@@ -26,3 +29,5 @@ function Find(target, array) {
     }
     return flag;
 }
+
+

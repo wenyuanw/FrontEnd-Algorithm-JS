@@ -128,27 +128,27 @@ function Partition(nums, low, hight) {
     return low;
 }
 
-// function inserSort(nums, low, hight) {
-//     for(let i = low + 1; i <= hight; ++i) {
-//         let temp = nums[i];
-//         let j;
-//         for(j = i - 1; j >= 0; --j) {
-//             if(temp < nums[j]) {
-//                 nums[j + 1] = nums[j];
-//                 continue;
-//             }
-//             break;
-//         }
-//         nums[j + 1] = temp;
-//     }
-// }
+function inserSort(nums, low, hight) {
+    for(let i = low + 1; i <= hight; ++i) {
+        let temp = nums[i];
+        let j;
+        for(j = i - 1; j >= 0; --j) {
+            if(temp < nums[j]) {
+                nums[j + 1] = nums[j];
+                continue;
+            }
+            break;
+        }
+        nums[j + 1] = temp;
+    }
+}
 
-// function Swap(nums, i, j) {
-//     let temp = nums[i];
-//     nums[i] = nums[j];
-//     nums[j] = temp;
-// }
+function Swap(nums, i, j) {
+    let temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+}
 
-// let dataArr = [2,6,5,9,12,22];
-// QuickSort(dataArr, 0, dataArr.length - 1);
-// console.log(dataArr);
+let dataArr = [2,6,5,9,12,22];
+QuickSort(dataArr, 0, dataArr.length - 1);
+console.log(dataArr);
