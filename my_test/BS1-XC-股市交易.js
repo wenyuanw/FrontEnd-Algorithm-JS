@@ -1,4 +1,5 @@
 /* 
+20210318 携程笔试题1
 题目描述：
 
 最近股市交易火热，每个人都希望能从中取得最大化的收益，
@@ -30,7 +31,9 @@
 // []
 // let input = 
 
+// 输入是字符串形式的数组，有点恶心：
 let prices = '[20,18,29,17,22,21,30,19]'
+
 prices = prices.replace('[','');
 prices = prices.replace(']','');
 
@@ -48,6 +51,7 @@ function maxProfit(prices) {
         buy = Math.min(buy, price)
         res = Math.max(res, price - buy);
     }
+
     buyIndex = prices.indexOf(buy)
     let saleIndex = prices.indexOf(buy+res)
     let resStr = prices.slice(buyIndex,saleIndex+1).join(',');
@@ -84,14 +88,16 @@ function maxProfit(prices) {
 console.log(maxProfit(prices));
 
 
+// 只通过 75%
+处理
 let prices = read_line();
 prices = prices.replace('[','');
 prices = prices.replace(']','');
-
 prices = prices.split(',')
 for(i=0;i<prices.length;i++) {
     prices[i] = parseInt(prices[i]);
 }
+
 var max=0;
 var start =0;
 var dis = 0;
