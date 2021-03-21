@@ -34,11 +34,11 @@
 // 输入是字符串形式的数组，有点恶心：
 let prices = '[20,18,29,17,22,21,30,19]'
 
-prices = prices.replace('[','');
-prices = prices.replace(']','');
+prices = prices.replace('[', '');
+prices = prices.replace(']', '');
 
 prices = prices.split(',')
-for(i=0;i<prices.length;i++) {
+for (i = 0; i < prices.length; i++) {
     prices[i] = parseInt(prices[i]);
 }
 let arr = []
@@ -53,20 +53,20 @@ function maxProfit(prices) {
     }
 
     buyIndex = prices.indexOf(buy)
-    let saleIndex = prices.indexOf(buy+res)
-    let resStr = prices.slice(buyIndex,saleIndex+1).join(',');
-    return '[' + resStr +']';
+    let saleIndex = prices.indexOf(buy + res)
+    let resStr = prices.slice(buyIndex, saleIndex + 1).join(',');
+    return '[' + resStr + ']';
 }
 
 console.log(maxProfit(prices));
 
 
 let prices = read_line();
-prices = prices.replace('[','');
-prices = prices.replace(']','');
+prices = prices.replace('[', '');
+prices = prices.replace(']', '');
 
 prices = prices.split(',')
-for(i=0;i<prices.length;i++) {
+for (i = 0; i < prices.length; i++) {
     prices[i] = parseInt(prices[i]);
 }
 let arr = []
@@ -80,50 +80,48 @@ function maxProfit(prices) {
         res = Math.max(res, price - buy);
     }
     buyIndex = prices.indexOf(buy)
-    let saleIndex = prices.indexOf(buy+res)
-    let resStr = prices.slice(buyIndex,saleIndex+1).join(',');
-    return '[' + resStr +']';
+    let saleIndex = prices.indexOf(buy + res)
+    let resStr = prices.slice(buyIndex, saleIndex + 1).join(',');
+    return '[' + resStr + ']';
 }
 
 console.log(maxProfit(prices));
 
 
-// 只通过 75%
-处理
+// ---------------只通过 75%
+
 let prices = read_line();
-prices = prices.replace('[','');
-prices = prices.replace(']','');
+prices = prices.replace('[', '');
+prices = prices.replace(']', '');
 prices = prices.split(',')
-for(i=0;i<prices.length;i++) {
+for (i = 0; i < prices.length; i++) {
     prices[i] = parseInt(prices[i]);
 }
 
-var max=0;
-var start =0;
+var max = 0;
+var start = 0;
 var dis = 0;
 
-for(var i=0;i<prices.length;i++) {
-    for(var j = i+1; j<prices.length;j++) {
+for (var i = 0; i < prices.length; i++) {
+    for (var j = i + 1; j < prices.length; j++) {
         var cha = prices[j] - prices[i];
-        if(cha > max) {
+        if (cha > max) {
             max = cha;
             start = i;
-            dis = j-i;
+            dis = j - i;
         }
     }
 }
 
 var newarr = []
-if(start===0){
+if (start === 0) {
     console.log('[]');
 } else {
-    for (var z = start;z<start+dis+1;z++) {
+    for (var z = start; z < start + dis + 1; z++) {
         newarr.push(prices[z])
     }
     newarr = newarr.join(',')
-    newarr = '[' + newarr +']'
+    newarr = '[' + newarr + ']'
 
     console.log(newarr);
 }
-
-
