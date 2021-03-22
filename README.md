@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-01-24 20:19:58
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-03-22 09:43:54
+ * @LastEditTime: 2021-03-22 13:47:56
  * @FilePath: \JZoffer\README.md
  * @Description: 
 -->
@@ -19,7 +19,7 @@
 [牛客网](https://www.nowcoder.com/ta/coding-interviews)
 
 1. [JZ2-替换空格-解题代码](./jianzhiOffer/JZ2-替换空格.js)
-2. [JZ27-斐波那契数列-解题代码](./jianzhiOffer/JZ27-斐波那契数列.js)
+2. [JZ7-斐波那契数列-解题代码](./jianzhiOffer/JZ7-斐波那契数列.js)
 3. [JZ27-二维数组中的查找-解题代码-20210114](./jianzhiOffer/JZ1-二维数组中的查找.js)
 4. [JZ18-二叉树的镜像（LeetCode翻转二叉树）-解题代码-20210115](./jianzhiOffer/JZ18-二叉树的镜像.js)
 5. [JZ6-旋转数组的最小数字-解题代码-20210116](./jianzhiOffer/JZ6-旋转数组的最小数字.js)
@@ -36,6 +36,9 @@
 16. [JZ14-合链表中的倒数第k个结点-解题代码-20210303](./jianzhiOffer/JZ14-链表的倒数第k个结点.js)
 17. [JZ34-第一个只出现一次的字符位置-解题代码-20210303](./jianzhiOffer/JZ34-第一个只出现一次的字符位置.js)
 18. [JZ22-从上往下打印二叉树-解题代码-20210316](./jianzhiOffer/JZ22-从上往下打印二叉树.js)
+19. [JZ22-矩阵覆盖-解题代码-20210322](./jianzhiOffer/JZ10-矩阵覆盖.js)
+20. [JZ13-调整数组顺序使奇数位于偶数前面-解题代码-20210322](./jianzhiOffer/JZ13-调整数组顺序使奇数位于偶数前面.js)
+21. [JZ11-二进制中1的个数-解题代码-20210322](./jianzhiOffer/JZ11-二进制中1的个数.js)
 
 
 
