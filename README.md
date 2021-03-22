@@ -2,7 +2,7 @@
  * @Author: Ran
  * @Date: 2021-01-24 20:19:58
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-03-21 16:44:14
+ * @LastEditTime: 2021-03-22 09:43:54
  * @FilePath: \JZoffer\README.md
  * @Description: 
 -->
@@ -77,6 +77,9 @@
 11. [流-美团笔试-20210320](./my_test/BS2-meituan-流.js)
 12. [多重集合-美团笔试-20210320-未完成](./my_test/BS2-meituan-多重集合.js)
 13. [赛码-常见输入输出-二维数组-20210320](./my_test/赛码-常见输入输出-二维数组.js)
+14. [大胃王-百度笔试-未完成-20210321](./my_test/BS3-baidu-大胃王-未完成.js)
+15. [数组询问-百度笔试-未完成-20210321](./my_test/BS3-baidu-大胃王-未完成.js)
+16. [分页组件补写-百度笔试-未完成-20210321](./my_test/BS3-baidu-分页组件-补写js代码-未完成)
 
 **前端常见题：**
 

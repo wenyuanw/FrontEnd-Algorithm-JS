@@ -1,11 +1,31 @@
 /*
  * @Author: Ran
  * @Date: 2021-03-19 16:34:47
- * @LastEditors: Ran
- * @LastEditTime: 2021-03-20 09:44:50
- * @FilePath: \JZoffer\my_test\牛客-OJ在线编程常见输入输出练习.js
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-21 20:13:58
+ * @FilePath: \JZoffer\my_test\牛客-常见输入输出练习-数组.js
  * @Description: 
  */
+
+// 本题为考试单行多行输入输出规范示例，无需提交，不计分。
+while (line = readline()) {
+    var lines = line.split(" ");
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    print(a + b);
+}
+
+// 本题为考试多行输入输出规范示例，无需提交，不计分。
+var n = parseInt(readline());
+var ans = 0;
+for (var i = 0; i < n; i++) {
+    lines = readline().split(" ")
+    for (var j = 0; j < lines.length; j++) {
+        ans += parseInt(lines[j]);
+    }
+}
+print(ans);
+
 /* 
 输入包括两个正整数a,b(1 <= a, b <= 10^9),输入数据包括多组。
 输出a+b的结果
