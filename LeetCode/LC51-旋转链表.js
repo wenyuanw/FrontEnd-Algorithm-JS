@@ -1,7 +1,7 @@
 /*
  * @Author: Ran
  * @Date: 2021-03-27 14:33:07
- * @LastEditTime: 2021-03-27 15:00:11
+ * @LastEditTime: 2021-03-28 10:34:19
  * @FilePath: \JZoffer\LeetCode\LC51-旋转链表.js
  * @Description: 
  * 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。
@@ -25,13 +25,59 @@
  * @param {number} k
  * @return {ListNode}
  */
+
 var rotateRight = function(head, k) {
+    if (!head) return head;
     // 首先看看这个链表一共有几个节点  同时记住尾节点 tail
-
+    let node = head;
+    let tail = null;
+    let count = 0;
+    while (node) {
+        count++;
+        tail = node;
+        node = node.next;
+    }
     // 然后节点数跟 k 取余
+    k = k % count;
+    // 余数为 0 的话直接返回原来的链表即可
+    if (k === 0) return head;
+    // 头尾相连：
+    tail.next = head;
+    node = head;
+    // 根据余数来截链表
+    let cutNode = null;
+    for (let i = 0; i < count - k; i++) {
+        cutNode = node;
+        node = node.next;
+    }
+    let newHead = cutNode.next;
+    cutNode.next = null;
+    return newHead;
+};
 
-    // 根据余数再来截链表，截成两段
-
-    // 后面那段的尾（即为 tail ，接上前面那段的头 head 即可
-
+var rotateRight = function(head, k) {
+    if (!head) return head;
+    // 首先看看这个链表一共有几个节点  同时记住尾节点 tail
+    let node = head;
+    let tail = null;
+    let count = 0;
+    while (node) {
+        count++;
+        tail = node;
+        node = node.next;
+    }
+    // 然后节点数跟 k 取余
+    k = k % count;
+    // 余数为 0 的话直接返回原来的链表即可
+    if (k === 0) return head;
+    // 头尾相连：
+    tail.next = head;
+    node = head;
+    // 根据余数来截链表
+    for (let i = 1; i < count - k; i++) {
+        node = node.next;
+    }
+    let newHead = node.next;
+    node.next = null;
+    return newHead;
 };
