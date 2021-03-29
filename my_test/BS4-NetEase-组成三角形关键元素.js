@@ -1,8 +1,8 @@
 /*
  * @Author: Ran
  * @Date: 2021-03-27 14:34:44
- * @LastEditTime: 2021-03-27 17:35:23
- * @FilePath: \JZofferf:\FrontEndLearning\FE_Learning\test\wangyi.js
+ * @LastEditTime: 2021-03-29 16:20:45
+ * @FilePath: \JZoffer\my_test\wangyi.js
  * @Description: 
  * 给定一个数组，所有元素都是大于0的整数。
  * 能够组成三角形三条边的是三元组，
@@ -17,6 +17,42 @@
  * 
  * 需要按照从小到大的顺序输出所有的关键元素
  */
+
+// 参考：
+// https://www.nowcoder.com/discuss/625915?channel=-1&source_id=profile_follow_post_nctrack
+// 思路，从小到大排序，三重循环暴力，通过70%案例
+
+let n = parseInt(readline());
+let arr = readline().split(' ').map((a) => parseInt(a)).sort((a, b) => a - b);
+let canComTri = new Array(n).fill(0);
+
+for (let i = 0; i < n - 2; i++) {
+    for (let j = i + 1; j < n - 1; j++) {
+        for (let k = j + 1; k < n; k++) {
+            if (arr[k] < arr[i] + arr[j]) {
+                canComTri[i]++;
+                canComTri[j]++;
+                canComTri[k]++;
+            } else {
+                break;
+            }
+        }
+    }
+}
+
+let res = [];
+let max = Math.max(...canComTri);
+for (let i = 0; i < n; i++) {
+    if (canComTri[i] === max) res.push(arr[i]);
+}
+console.log(res.join(' '))
+
+
+
+
+
+
+
 
 let n = 7;
 let eleArr = [1, 2, 3, 4, 5, 6, 7];
