@@ -10,28 +10,45 @@
 // 每次访问队列中的元素的时候，输出它的值，并且将其非空左右节点放入队列中。
 // 直到队列为空，停止输出，结束函数循环即可。
 
-function PrintFromTopToBottom(root)
-{   
+function PrintFromTopToBottom(root) {
     let queue = [];
     let res = [];
-    if(!root) return false;
-    
+    if (!root) return false;
+
     queue.push(root);
-    while(queue.length) {
+    while (queue.length) {
         // 每次访问队列中的元素的时候，输出它的值
         let node = queue.shift();
         res.push(node.val);
         // 并且将其非空左右节点放入队列中
-        if(node.left) {
+        if (node.left) {
             queue.push(node.left);
         }
-        if(node.right) {
+        if (node.right) {
             queue.push(node.right);
         }
     }
     // 直到队列为空，停止输出，结束函数循环即可。
     return res;
 }
+
+// leetcode上面看到的递归实现层序遍历：
+const helper = function(root, result, depth) {
+    if (root == null) return;
+    if (result[depth] == null) {
+        result[depth] = [];
+    }
+    result[depth].push(root.val);
+    helper(root.left, result, depth + 1);
+    helper(root.right, result, depth + 1);
+}
+
+var levelOrder = function(root) {
+    if (root == null) return [];
+    const result = [];
+    helper(root, result, 0);
+    return result;
+};
 
 /* function TreeNode(x) {
     this.val = x;
@@ -67,7 +84,7 @@ function PrintFromTopToBottom(root)
 //     if(!root) return null;
 
 //     resArr.push(root.val);
-    
+
 //     while() {
 //         let left = root.left;
 //         let right = root.right;
