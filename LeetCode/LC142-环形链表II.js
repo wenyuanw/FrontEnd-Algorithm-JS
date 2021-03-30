@@ -1,7 +1,7 @@
 /*
  * @Author: Ran
  * @Date: 2021-03-29 23:41:51
- * @LastEditTime: 2021-03-29 23:43:56
+ * @LastEditTime: 2021-03-30 08:55:34
  * @FilePath: \JZoffer\LeetCode\LC142-环形链表II.js
  * @Description: 
  * 需要返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
@@ -18,3 +18,5 @@ var detectCycle = function(head) {
     }
     return null;
 };
+
+// 还是得用双指针比较快
