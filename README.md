@@ -96,6 +96,7 @@
 4. [二分查找-待完成-202103](./FE_Algorithm/)
 5. [防抖节流-待完成-202103](./FE_Algorithm/)
 6. [CSS画三角形-20210328](./FE_Algorithm/CJ4-CSS画三角形.html)
+7. [数组去重-20210331](./FE_Algorithm/CJ5-数组去重.js)
 
 **面试复盘：**
 
