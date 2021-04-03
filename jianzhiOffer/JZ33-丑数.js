@@ -1,7 +1,7 @@
 /*
  * @Author: Ran
  * @Date: 2021-04-03 09:35:36
- * @LastEditTime: 2021-04-03 11:15:57
+ * @LastEditTime: 2021-04-03 11:32:40
  * @FilePath: \JZoffer\jianzhiOffer\JZ33-丑数.js
  * @Description: 
  * 把只包含质因子2、3和5的数称作丑数（Ugly Number）。
@@ -43,6 +43,48 @@ function GetUglyNumber_Solution(index) {
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
+
+function GetUglyNumber_Solution(index) {
+    if (index < 7) return index;
+    let uglyNums = [1];
+    let p2 = 0;
+    let p3 = 0;
+    let p5 = 0;
+    while (uglyNums.length < index) {
+        let min = Math.min(uglyNums[p2] * 2, uglyNums[p3] * 3, uglyNums[p5] * 5);
+        uglyNums.push(min);
+        if (uglyNums[p2] * 2 === min) p2++;
+        if (uglyNums[p3] * 3 === min) p3++;
+        if (uglyNums[p5] * 5 === min) p5++;
+    }
+    return uglyNums[index - 1];
+}
+
+// 略微改动
+// 有些数的素因子只有 3，5，7，请设计一个算法找出第 k 个数。注意，不是必须有这些素因子，而是必须不包含其他的素因子。例如，前几个数按顺序应该是 1，3，5，7，9，15，21。
+
+/**
+ * @param {number} k
+ * @return {number}
+ */
+var getKthMagicNumber = function(k) {
+    let uglyNums = [1];
+    let p3 = 0;
+    let p5 = 0;
+    let p7 = 0;
+    while (uglyNums.length < k) {
+        let min = Math.min(uglyNums[p3] * 3, uglyNums[p5] * 5, uglyNums[p7] * 7);
+        uglyNums.push(min);
+        if (uglyNums[p3] * 3 === min) p3++;
+        if (uglyNums[p5] * 5 === min) p5++;
+        if (uglyNums[p7] * 7 === min) p7++;
+    }
+    return uglyNums[k - 1];
+};
+
+// 来源：力扣（LeetCode）
+// 链接：https://leetcode-cn.com/problems/get-kth-magic-number-lcci
+// 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 
 // 暴力解法，对每一个数都进行判断，会超时。
