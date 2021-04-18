@@ -1,7 +1,7 @@
 /*
  * @Author: Ran
  * @Date: 2021-04-17 14:16:11
- * @LastEditTime: 2021-04-17 15:31:46
+ * @LastEditTime: 2021-04-17 16:16:17
  * @FilePath: \JZoffer\jianzhiOffer\JZ52-正则表达式匹配.js
  * @Description: 
  * 请实现一个函数用来匹配包括'.'和'*'的正则表达式。
@@ -43,3 +43,42 @@ function matchCore(str, pattern) {
     }
     return false;
 }
+
+// 动态规划，从后往前分析
+const isMatch = (s, p) => {
+    if (s == null || p == null) return false;
+
+    const sLen = s.length,
+        pLen = p.length;
+
+    const dp = new Array(sLen + 1);
+    for (let i = 0; i < dp.length; i++) {
+        dp[i] = new Array(pLen + 1).fill(false); // 将项默认为false
+    }
+    // base case
+    dp[0][0] = true;
+    for (let j = 1; j < pLen + 1; j++) {
+        if (p[j - 1] == "*") dp[0][j] = dp[0][j - 2];
+    }
+    // 迭代
+    for (let i = 1; i < sLen + 1; i++) {
+        for (let j = 1; j < pLen + 1; j++) {
+
+            if (s[i - 1] == p[j - 1] || p[j - 1] == ".") {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else if (p[j - 1] == "*") {
+                if (s[i - 1] == p[j - 2] || p[j - 2] == ".") {
+                    dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 2] || dp[i - 1][j];
+                } else {
+                    dp[i][j] = dp[i][j - 2];
+                }
+            }
+        }
+    }
+    return dp[sLen][pLen]; // 长sLen的s串 是否匹配 长pLen的p串
+};
+
+//   作者：xiao_ben_zhu
+//   链接：https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
+//   来源：力扣（LeetCode）
+//   著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
