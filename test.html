@@ -2,8 +2,8 @@
  * @Author: Ran
  * @Date: 2021-01-16 11:01:17
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-04-11 17:14:28
- * @FilePath: \JZoffer\test.html
+ * @LastEditTime: 2021-04-30 23:14:41
+ * @FilePath: \snackbar-wuef:\FrontEndLearning\FE_Learning\JZoffer\test.html
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -14,43 +14,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
+        .paper-snackbar {
+            transition-property: opacity, bottom, left, right, width, margin, border-radius;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+            font-family: RobotoDraft;
+            font-size: 14px;
+            min-height: 14px;
+            background-color: #323232;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            line-height: 22px;
+            padding: 18px 24px;
+            bottom: 0px;
+            opacity: 0;
+        }
+        
+        @media (min-width: 640px) {
+            .paper-snackbar {
+                /*
+            Desktop:
+            Single-line snackbar height: 48 dp tall
+            Minimum width: 288 dp
+            Maximum width: 568 dp
+            2 dp rounded corner
+            Text: Roboto Regular 14 sp
+            Action button: Roboto Medium 14 sp, all-caps text
+            Default background fill: #323232 100%
+            */
+                min-width: 288px;
+                max-width: 568px;
+                display: inline-flex;
+                border-radius: 2px;
+                margin: 24px;
+                bottom: -100px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .paper-snackbar {
+                /*
+            Mobile:
+            Single-line snackbar height: 48 dp
+            Multi-line snackbar height: 80 dp
+            Text: Roboto Regular 14 sp
+            Action button: Roboto Medium 14 sp, all-caps text
+            Default background fill: #323232 100%  
+            */
+                left: 0px;
+                right: 0px;
+            }
+        }
+        
+        .paper-snackbar .action {
+            background: inherit;
+            display: inline-block;
+            border: none;
+            font-size: inherit;
+            text-transform: uppercase;
+            color: #ffeb3b;
+            margin: 0px 0px 0px 24px;
+            padding: 0px;
+            min-width: -webkit-min-content;
+            min-width: -moz-min-content;
+            min-width: min-content;
+        }
+        
+        .paper-button {
+            position: relative;
+            padding: 4px 0;
+            margin: 1em;
+            width: 160px;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: #000;
+            text-transform: uppercase;
+            border-radius: 3px;
+            outline-color: #ccc;
+        }
+        
+        body {
+            margin: 1em;
+            background-color: white;
+            font-family: RobotoDraft, "Helvetica Neue", Helvetica, Arial;
+        }
     </style>
 </head>
 
 <body>
+    <button id="singleaction" class="paper-button raised-button colored">Single + action</button>
+    <!--
+    <div class="paper-snackbar">
+      <button class="action">Dismiss</button>
+      Your message was sent
+    </div> 
+    -->
+
     <script>
-        var entry = {
-            a: {
-                b: {
-                    c: {
-                        dd: 'abcdd'
-                    }
-                },
-                d: {
-                    xx: 'adxx'
-                },
-                e: 'ae'
-            }
-        }
-
-        function transform(obj) {
-            let res = {}
-            fn(obj)
-            return res
-
-            function fn(obj, temp_key = '') { //temp_key--临时存放属性名
-                for (let key in obj) {
-                    if (typeof obj[key] == "object") {
-                        fn(obj[key], temp_key + key + ".")
-                    } else {
-                        res[temp_key + key] = obj[key]
-                    }
+        /* This is a prototype */
+        var createSnackbar = (function() {
+            // Any snackbar that is already shown
+            var previous = null;
+            return function(message, actionText, action) {
+                if (previous) {
+                    previous.dismiss();
                 }
-            }
-        }
+                var snackbar = document.createElement('div');
+                snackbar.className = 'paper-snackbar';
+                snackbar.dismiss = function() {
+                    this.style.opacity = 0;
+                };
+                var text = document.createTextNode(message);
+                snackbar.appendChild(text);
+                if (actionText) {
+                    if (!action) {
+                        action = snackbar.dismiss.bind(snackbar);
+                    }
+                    var actionButton = document.createElement('button');
+                    actionButton.className = 'action';
+                    actionButton.innerHTML = actionText;
+                    actionButton.addEventListener('click', action);
+                    snackbar.appendChild(actionButton);
+                }
+                setTimeout(function() {
+                    if (previous === this) {
+                        previous.dismiss();
+                    }
+                }.bind(snackbar), 5000);
 
-        console.log(transform(entry)) //打印测试
+                snackbar.addEventListener('transitionend', function(event, elapsed) {
+                    if (event.propertyName === 'opacity' && this.style.opacity == 0) {
+                        this.parentElement.removeChild(this);
+                        if (previous === this) {
+                            previous = null;
+                        }
+                    }
+                }.bind(snackbar));
+
+                previous = snackbar;
+                document.body.appendChild(snackbar);
+                // In order for the animations to trigger, I have to force the original style to be computed, and then change it.
+                getComputedStyle(snackbar).bottom;
+                snackbar.style.bottom = '0px';
+                snackbar.style.opacity = 1;
+            };
+        })();
+
+        var shortMessage = 'Your message was sent';
+
+        document.getElementById('singleaction').addEventListener('click', function() {
+            createSnackbar(shortMessage, 'Dismiss');
+        });
     </script>
 </body>
 
