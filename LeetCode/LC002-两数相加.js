@@ -31,12 +31,13 @@
  */
 
 // 一、自己写的解法，实在不够简洁
- var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function(l1, l2) {
     let addBit = 0; // 有无进位，若是有进位则必定是 1
-    let head = null , tail = null;
-    while(l1 && l2) {
+    let head = null,
+        tail = null;
+    while (l1 && l2) {
         let sum = l1.val + l2.val + addBit;
-        if(sum > 9) {
+        if (sum > 9) {
             // 有进位的情况
             addBit = 1;
         } else {
@@ -44,18 +45,18 @@
             addBit = 0;
             // 小于 10 的数取余也就是这个数本身
         }
-            if(!head) {
-                // 初始化链表，记录头链表
-                head = tail = new ListNode(sum % 10);
-            } else {
-                tail.next = new ListNode(sum % 10);
-                tail = tail.next;
-            }
-            l1 = l1.next;
-            l2 = l2.next;
+        if (!head) {
+            // 初始化链表，记录头链表
+            head = tail = new ListNode(sum % 10);
+        } else {
+            tail.next = new ListNode(sum % 10);
+            tail = tail.next;
+        }
+        l1 = l1.next;
+        l2 = l2.next;
     }
 
-// 当链表 l1 跟 l2 还没有完全遍历完的时候则继续循环
+    // 当链表 l1 跟 l2 还没有完全遍历完的时候则继续循环
     let l = l1 ? l1 : l2;
     while (l) {
         if (addBit === 1) {
@@ -85,7 +86,7 @@
 // 二、较简洁且容易理解的解法
 // from :https://leetcode-cn.com/problems/add-two-numbers/solution/liang-ge-shu-xiang-jia-zui-rong-yi-li-jie-de-jie-f/
 
- var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function(l1, l2) {
     let addOne = 0
     let sum = new ListNode('0')
     let head = sum
@@ -95,9 +96,9 @@
         let r1 = val1 + val2 + addOne
         addOne = r1 >= 10 ? 1 : 0
         sum.next = new ListNode(r1 % 10)
-        sum = sum.next 
-        if (l1) l1 = l1.next 
-        if (l2) l2 = l2.next 
+        sum = sum.next
+        if (l1) l1 = l1.next
+        if (l2) l2 = l2.next
     }
     return head.next
 };

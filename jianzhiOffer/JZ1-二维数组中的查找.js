@@ -1,9 +1,9 @@
 /*
  * @Author: Ran
  * @Date: 2021-01-14 11:20:08
- * @LastEditors: Ran
- * @LastEditTime: 2021-01-14 11:20:43
- * @FilePath: \Nodef:\FrontEndLearning\FE_Learning\JZoffer\JZ1-二维数组中的查找.js
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-22 21:06:43
+ * @FilePath: \FrontEnd-Algorithm-JS\jianzhiOffer\JZ1-二维数组中的查找.js
  * @Description: 
  * 在一个二维数组中（每个一维数组的长度相同），
  * 每一行都按照从左到右递增的顺序排序，
@@ -15,7 +15,7 @@
 function Find(target, array) {
     // 注意边界条件:
     // 没有的话输入 0 [] 的时候会出错
-    if(!array.length) return false;
+    if (!array.length) return false;
 
     let row = array.length;
     let col = array[0].length;
@@ -29,5 +29,3 @@ function Find(target, array) {
     }
     return flag;
 }
-
-

@@ -2,8 +2,8 @@
  * @Author: Ran
  * @Date: 2021-03-01 23:17:29
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-03-30 17:32:03
- * @FilePath: \JZoffer\jianzhiOffer\JZ8-跳台阶.js
+ * @LastEditTime: 2021-08-20 11:33:04
+ * @FilePath: \FrontEnd-Algorithm-JS\jianzhiOffer\JZ8-跳台阶.js
  * @Description:
  * 题目描述：
  * 一只青蛙一次可以跳上1级台阶，也可以跳上2级。
@@ -63,3 +63,17 @@ var numWays = function(n) {
     return res;
 };
 console.log(numWays(78));
+
+// 动态规划优化:减少控件消耗
+var fib = function(N) {
+    if (N === 0) return 0;
+    if (N === 2 || N === 1) return 1;
+    let prev = 1,
+        curr = 1;
+    for (let i = 3; i <= N; i++) {
+        let sum = prev + curr;
+        prev = curr;
+        curr = sum;
+    }
+    return curr;
+};

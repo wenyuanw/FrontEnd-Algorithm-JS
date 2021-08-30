@@ -1,9 +1,9 @@
 /*
  * @Author: Ran
  * @Date: 2021-01-12 10:54:29
- * @LastEditors: Ran
- * @LastEditTime: 2021-01-12 10:55:56
- * @FilePath: \Nodef:\FrontEndLearning\FE_Learning\JZoffer\JZ27-斐波那契数列.js
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-08-20 11:30:39
+ * @FilePath: \FrontEnd-Algorithm-JS\jianzhiOffer\JZ7-斐波那契数列.js
  * @Description: 
  * 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项
  * （从0开始，第0项为0，第1项是1）。n≤39
@@ -40,22 +40,22 @@ var fib = function(n) {
     dp[0] = 0;
     dp[1] = 1;
 
-    for(let i = 2; i <= n; i++) {
+    for (let i = 2; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
         // 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-        if(dp[i] >= 1e9 + 7) dp[i]= dp[i] - (1e9 + 7);
-    } 
+        if (dp[i] >= 1e9 + 7) dp[i] = dp[i] - (1e9 + 7);
+    }
     return dp[n];
 };
 
 // 暴力递归竟然会超时，有点意思
-// var fib = function(n) {
-//     // fib(n) = fib(n - 1) + fib(n - 2)
-//     if(n == 0) return 0;
-//     if(n == 1) return 1;
+var fib = function(n) {
+    // fib(n) = fib(n - 1) + fib(n - 2)
+    if (n == 0) return 0;
+    if (n == 1) return 1;
 
-//     return fib(n - 1) + fib(n - 2);
-// };
+    return fib(n - 1) + fib(n - 2);
+};
 
 var fib = function(n) {
     // fib(n) = fib(n - 1) + fib(n - 2)
@@ -67,12 +67,12 @@ var fib = function(n) {
     return _fib(n);
 
     function _fib(n) {
-        if(cache[n] !== undefined) return cache[n];
+        if (cache[n] !== undefined) return cache[n];
 
         cache[n] = _fib(n - 1) + _fib(n - 2);
         // 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-        if(cache[n] >= 1e9 + 7) cache[n]= cache[n] - (1e9 + 7);
+        if (cache[n] >= 1e9 + 7) cache[n] = cache[n] - (1e9 + 7);
         return cache[n];
     }
-    
+
 };

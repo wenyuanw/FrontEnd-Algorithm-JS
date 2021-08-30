@@ -47,7 +47,3 @@ function hasSub(pRoot1, pRoot2) {
     if (!(pRoot1.val === pRoot2.val)) return false;
     return hasSub(pRoot1.left, pRoot2.left) && hasSub(pRoot1.right, pRoot2.right);
 }
-
-
-// 搞不懂，代码似乎没有问题，为什么牛客判题的时候会出错呢？ LeetCode可以
-// V8 的不可以，Node环境可以
