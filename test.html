@@ -18,21 +18,12 @@
 </head>
 
 <body>
-    <div>css spring</div>
-    <script>
-        const keyframes = spring({
-            left: '0px',
-            opacity: 0
-        }, {
-            left: '250px',
-            opacity: 1
-        }, {
-            preset: 'wobbly',
-            precision: 5
-        });
-        const keyframeString = toString(keyframes);
-        console.log(keyframeString)
-    </script>
+    <div style="width: 1000px; display: flex;">
+        <br>
+        <div id="a" style="flex-basis: 50%; flex-shrink: 0;"></div>
+        <div style="flex-basis: 75%; flex-grow: 5;"></div>
+        <br>
+    </div>
 </body>
 
 </html>
