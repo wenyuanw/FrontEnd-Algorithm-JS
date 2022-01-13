@@ -1,8 +1,8 @@
 /*
  * @Author: Ran
  * @Date: 2021-12-26 22:50:53
- * @LastEditTime: 2021-12-26 22:54:02
- * @FilePath: \FrontEnd\FrontEnd-Algorithm-JS\test.js
+ * @LastEditTime: 2022-01-13 19:53:03
+ * @FilePath: \FrontEnd-Algorithm-JS\test.js
  * @Description: 
  */
 function p() {
@@ -11,6 +11,7 @@ function p() {
 var p1 = new p()
 p1.like.push('3')
 
+<<<<<<< HEAD
 console.log(p.prototype.like);
 
 let a = 1
@@ -32,3 +33,6 @@ function debounce(fn, delay) {
 }
 // Copilot牛逼
 // what happened?
+=======
+console.log(p.prototype.like);
+>>>>>>> aa68eaf (Revert "test Copilot")
